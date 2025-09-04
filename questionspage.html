@@ -125,6 +125,7 @@ font-family: cursive;
            reback();
        }
  var score =0;
+ let vs=0;
        function answerbtn (clickedElement) {
             var answers = document.getElementsByClassName("answer");
                
@@ -143,8 +144,17 @@ font-family: cursive;
 
                  
             }
+            
+            if(vs===0){
+
+          
           if (clickedElement.textContent === correct_answer) {
         score++;
+        
+
+          }
+          vs=1;
+
     }
              localStorage.setItem("score", score);
            
