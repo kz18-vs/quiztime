@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+    background-image: url(score.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+  flex-direction: column;
+  align-items: center ;
+  justify-content: center  ;
+  height: 100vh;
+
+
+}
+h1{
+    font-size: 60px;
+   color: black;
+}
+
+a{
+   text-decoration: none;
+    color: inherit;
+}
+ul{
+     list-style-type: none;
+      width: 98px;
+    padding: 8px;
+    background-color: pink;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 20px;
+font-family: cursive;
+}
+p{
+    font-family: cursive;
+    font-size: 30px;
+   color: orange;
+   text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+   margin-top: 30px;
+
+}
+
+#sc{
+    color: palevioletred;
+}
+#thanks{
+     font-size: 50px;
+}
+#rejouer:hover{
+    background-color: palevioletred;
+}
+
+#votresc{
+    font-size: 40px;
+}
+
+    </style>
+</head>
+<body>
+    <p>  <span id="name"></span> félicitations, vous avez atteint la fin des questions</p>
+  <p id="thanks">MERCI D'AVOIR JOUÉ</p>
+    
+           <p id="votresc">Votre score est <span id="sc"> </span> </p>
+     
+    
+    <script>
+        var name = localStorage.getItem("nickname");
+
+    var n =document.getElementById("name");
+    n.textContent=  name
+ 
+    
+    
+        var score = localStorage.getItem("score");
+      var s =document.getElementById("sc");
+    s.textContent=  score ;
+
+    </script>
+
+    <h1></h1>
+    <ul id="rejouer">
+        <li> <a   href="index.html">REJOUER</a></li>
+    </ul>
+    
+</body>
+</html>

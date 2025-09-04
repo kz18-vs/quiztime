@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-image: url(quetion.png);
+             background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+  flex-direction: column;
+  align-items: center ;
+  justify-content: center  ;
+  height: 100vh;
+        }
+
+#nextbtn{
+     width: 130px;
+    padding: 8px;
+    margin: 8px;
+    background-color: pink;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 20px;
+font-family: cursive;
+}
+
+#nextbtn:hover{
+    background-color: palevioletred;
+}
+
+.questionbox{
+   width:600px ;
+   height: 400px;
+   background-color:rgba(255, 192, 203, 0.705) ;
+   border-radius: 10px;
+   border: 1px solid pink;
+   font-size: 20px;
+   font-family: cursive;
+  padding: 30px;
+    display: flex;
+  flex-direction: column;
+  align-items: center ;
+  justify-content: center  ;
+}
+.answerbox{
+   min-width: 400px;
+    padding-left:30px ;
+    padding-right:30px ;
+   height: 40px;
+   background-color: beige;
+   border-radius: 10px;
+   border: 1px solid beige;
+     display: flex;
+  flex-direction: column;
+  align-items: center ;
+  justify-content: center  ;
+   
+
+}
+.transi{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+}
+.transi:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+</head>
+<body>
+ <div class="questionbox">
+    <h3  id="allq"></h3>
+   
+     <h3  class="answerbox answer transi" id="answer1" onclick="answerbtn(this)"></h3>
+      <h3  class="answerbox answer transi" id="answer2" onclick="answerbtn(this)"></h3>
+       <h3  class="answerbox answer transi" id="answer3" onclick="answerbtn(this)"></h3>
+        <h3 class="answerbox answer transi" id="answer4" onclick="answerbtn(this)" ></h3>
+    
+    </div>
+
+    <button   id="nextbtn"> Next </button>
+    
+    <script src="Q.js">
+    </script>
+    
+    <script>
+        var query = window.location.search 
+        var para = new URLSearchParams(query)
+        var category = para.get("category")
+      
+        var list = questions[category];
+         
+         
+
+        var q = document.getElementById("allq");
+        var a1= document.getElementById("answer1");
+        var a2= document.getElementById("answer2");
+        var a3= document.getElementById("answer3");
+        var a4= document.getElementById("answer4");
+        var correct_answer ;
+      
+       var nextindex=0;
+       function nextbutton (){
+             
+           
+        if(nextindex<list.length){
+             q.textContent= list[nextindex].question
+              a1.textContent= list[nextindex].answers[0]
+              a2.textContent= list[nextindex].answers[1]
+              a3.textContent= list[nextindex].answers[2]
+              a4.textContent= list[nextindex].answers[3]
+              correct_answer = list[nextindex].correct_answer 
+            
+             nextindex++;
+
+
+        }else {
+            window.location.href="scorepage.html";
+        }
+           reback();
+       }
+ var score =0;
+       function answerbtn (clickedElement) {
+            var answers = document.getElementsByClassName("answer");
+               
+            for( let i =0 ; i<answers.length;i++){
+                if ( answers[i].textContent === correct_answer){
+                    answers[i].style.background="#cce3d4";
+                    answers[i].style.border="#cce3d4";
+                    
+                      
+                   
+    
+                }else {
+                     answers[i].style.background="#f08080";
+                     answers[i].style.border="#f08080";
+                }
+
+                 
+            }
+          if (clickedElement.textContent === correct_answer) {
+        score++;
+    }
+             localStorage.setItem("score", score);
+           
+       }
+
+       function reback(){
+        var answers = document.getElementsByClassName("answer");      
+        for(i=0;i<4;i++){
+           answers[i].style.background = "beige";
+        }
+   
+       }
+
+       document.getElementById("nextbtn").addEventListener("click",nextbutton);
+        
+       
+         nextbutton();
+        
+
+    </script>
+    
+</body>
+</html>

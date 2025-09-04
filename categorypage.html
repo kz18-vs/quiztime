@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+     background-image: url(background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+  flex-direction: column;
+  align-items: center ;
+  justify-content: center  ;
+  height: 100vh;
+}
+
+    h1{
+    font-family: cursive;
+    font-size: 80px;
+   color: orange;
+   text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+
+}
+
+   
+    
+
+ul{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between ;
+
+     width:700px ;
+     list-style-type: none;
+     font-family:cursive;
+     
+
+}
+a{
+   text-decoration: none;
+   color: inherit;
+   width:130px ;
+   padding: 8px;
+   background-color:pink ;
+   border-radius: 10px;
+   border: 1px solid black;
+   font-size: 20px;
+   font-family: cursive;
+}
+a:hover{
+  background-color: palevioletred;
+
+}
+.transition{
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+}
+.transition:hover{
+  transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+    </style>
+</head>
+<body>
+    <h1>Choisissez la categorie</h1>
+    <header>
+      <ul >
+        <li class="transition"><a href='questionspage.html?category=countries'>Pays</a></li>
+       <li class="transition"><a href='questionspage.html?category=history' >Histoire</a></li>
+        <li class="transition"><a href='questionspage.html?category=computersc'>Informatique</a></li> 
+          <li class="transition"><a href='questionspage.html?category=math'>Mathematique</a></li>
+      <li class="transition"><a href='questionspage.html?category=geologie'>Geologie</a></li>
+      <li class="transition"><a href='questionspage.html?category=hydrologie'>Hydrologie</a></li>
+    </ul> 
+    </header>
+</body>
+</html>

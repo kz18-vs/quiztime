@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+    background-image: url(background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+  flex-direction: column;
+  align-items: center ;
+  justify-content: center  ;
+   font-family: cursive;
+ }
+
+#btn{
+   background-color: beige;
+}
+
+
+h1{
+   font-family: cursive;
+    font-size: 150px;
+   color: orange;
+   text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+   margin-top: 150px;
+}
+#btn:hover{
+    background-color:palevioletred;
+}   
+
+
+#nickname {
+    margin-bottom: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: -60px;
+
+
+}
+.input_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+#btn{
+    width: 130px;
+    padding: 8px;
+    background-color: pink;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 20px;
+font-family: cursive;
+}</style>
+</head>
+<body>
+     
+    <h1> Quiz time </h1>
+      
+        <form onsubmit="start()" class="input_div"> 
+          
+            
+             <input id="nickname" type="text" placeholder="Entrer votre nom" required>
+           
+  <button type="submit" id="btn">JOUER</button> </form>
+<script>
+   
+    function start(){
+        event.preventDefault()
+ let name  = document.getElementById("nickname");
+    localStorage.setItem("nickname", name.value);
+     window.location.href="categorypage.html";
+   
+   }
+</script>
+ 
+    </body>
+</html>
